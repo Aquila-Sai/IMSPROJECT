@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-include 'header.php';
+include '../header.php';
 ?>
 
 <section class="py-16 flex items-center justify-center min-h-[80vh]">
