@@ -1,0 +1,157 @@
+/* ----------------------------------- */
+/* Tailwind Configuration for Theme Colors and Fonts */
+/* ----------------------------------- */
+/* NOTE: In a standard setup, this configuration would be in a tailwind.config.js file. 
+   Since the original was an inline <script> block, I'm including it here as a comment 
+   for reference, as CSS files cannot execute JavaScript. The theme colors will 
+   still be used by the Tailwind classes in the HTML. 
+
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                // Deep space, neon, and high-contrast text
+                'space-dark': '#010414',      // Ultra deep navy/black
+                'primary-panel': '#0e172a',   // Slate 900
+                'neon-blue': '#4c65f8',       // Vibrant primary accent
+                'neon-glow': 'rgba(76, 101, 248, 0.5)', // Glow color
+                'text-base': '#e2e8f0',       // Off-white text
+            },
+            fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+            },
+        }
+    }
+}
+*/
+
+/* Base styling for a deep-space feel */
+body {
+    background-color: #010414;
+    color: #e2e8f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Enhanced Futuristic Card Styling */
+.futuristic-card {
+    background-color: #0e172a;
+    border: 1px solid rgba(76, 101, 248, 0.2);
+    box-shadow: 0 0 5px rgba(76, 101, 248, 0.1);
+    transition: all 0.3s ease;
+}
+
+.futuristic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(76, 101, 248, 0.4), 0 0 15px rgba(76, 101, 248, 0.3);
+}
+
+/* ----------------------------------- */
+/* Custom Text Glow for 'Lumen' Logo */
+/* ----------------------------------- */
+.logo-glow {
+    /* Initial glow state */
+    color: #4c65f8; 
+    text-shadow: 0 0 4px #4c65f8, 0 0 8px #4c65f8;
+    animation: text-glow-pulse 3s ease-in-out infinite;
+}
+
+@keyframes text-glow-pulse {
+    0%, 100% {
+        text-shadow: 0 0 4px #4c65f8, 0 0 8px #4c65f8, 0 0 12px rgba(76, 101, 248, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 6px #4c65f8, 0 0 12px #4c65f8, 0 0 20px rgba(76, 101, 248, 0.6);
+    }
+}
+
+
+/* ----------------------------------- */
+/* INTERACTIVE LAPTOP LOGIN STYLES */
+/* ----------------------------------- */
+
+/* Outer container for the laptop */
+#laptop-login-container {
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.6s ease-out;
+}
+
+/* The laptop body (when closed) */
+.laptop-body {
+    width: 320px;
+    height: 200px;
+    background: linear-gradient(145deg, #1e293b, #0e172a);
+    border-radius: 12px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), 0 0 25px #4c65f8;
+    transform: rotateX(10deg);
+    transform-style: preserve-3d;
+    transition: all 0.8s ease-in-out;
+    position: relative;
+}
+
+.laptop-body::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 2px solid #4c65f8;
+    border-radius: 9px;
+    opacity: 0.1;
+}
+
+/* The screen that "opens" */
+.laptop-screen {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #03081e;
+    border-radius: 12px;
+    transform-origin: bottom;
+    transform: rotateX(0deg); /* Closed state */
+    transition: transform 0.8s ease-in-out;
+    box-shadow: 0 0 20px rgba(76, 101, 248, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    backface-visibility: hidden;
+}
+
+/* Open State */
+.laptop-body.open {
+    transform: rotateX(0deg);
+}
+
+.laptop-body.open .laptop-screen {
+    transform: rotateX(-90deg) translateZ(100px); /* Rotates and moves up */
+    z-index: 10;
+}
+
+/* Login content visibility */
+.login-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease 0.3s;
+}
+
+.laptop-body.open .login-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Initial closed text (Lumen logo/prompt) */
+.closed-prompt {
+    transition: opacity 0.3s ease;
+}
+
+.laptop-body.open .closed-prompt {
+    opacity: 0;
+}
