@@ -44,11 +44,11 @@ include '../header.php';
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-4xl font-bold logo-glow">Order #<?= $order['order_id'] ?></h1>
             <?php if(isAdmin()): ?>
-                <a href="/admin/orders/read.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
+                <a href="/lumen/cart/view.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
                     ← Back to Orders
                 </a>
             <?php else: ?>
-                <a href="/user/profile.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
+                <a href="/lumen/user/profile.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
                     ← Back to Profile
                 </a>
             <?php endif; ?>
@@ -84,7 +84,7 @@ include '../header.php';
                                                                      AND product_id = {$item['product_id']}");
                                         if($check_review->num_rows == 0):
                                     ?>
-                                        <a href="/reviews/create.php?order_id=<?= $order_id ?>&product_id=<?= $item['product_id'] ?>" 
+                                        <a href="/lumen/reviews/create.php?order_id=<?= $order_id ?>&product_id=<?= $item['product_id'] ?>" 
                                            class="inline-block mt-2 text-sm text-neon-blue hover:underline">
                                             Write a Review
                                         </a>
@@ -181,7 +181,7 @@ include '../header.php';
                 <?php if(isAdmin()): ?>
                     <div class="futuristic-card p-6 rounded-xl">
                         <h2 class="text-xl font-bold mb-4 text-neon-blue">Admin Actions</h2>
-                        <a href="/admin/orders/update.php?id=<?= $order['order_id'] ?>" 
+                        <a href="/lumen/admin/orders/update.php?id=<?= $order['order_id'] ?>" 
                            class="block w-full py-2 text-center bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition">
                             Update Order
                         </a>

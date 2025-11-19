@@ -28,10 +28,10 @@ include '../../header.php';
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-4xl font-bold logo-glow">Manage Products</h1>
             <div class="flex gap-4">
-                <a href="/admin/dashboard.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
+                <a href="/lumen/admin/dashboard.php" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
                     ← Dashboard
                 </a>
-                <a href="/admin/products/create.php" class="px-4 py-2 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition">
+                <a href="/lumen/admin/products/create.php" class="px-4 py-2 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition">
                     + Add Product
                 </a>
             </div>
@@ -89,9 +89,9 @@ include '../../header.php';
                                 </td>
                                 <td class="py-3 px-4">
                                     <div class="flex gap-2">
-                                        <a href="/admin/products/update.php?id=<?= $product['product_id'] ?>" 
+                                        <a href="/lumen/admin/products/update.php?id=<?= $product['product_id'] ?>" 
                                            class="text-neon-blue hover:underline">Edit</a>
-                                        <a href="/admin/products/delete.php?id=<?= $product['product_id'] ?>" 
+                                        <a href="/lumen/admin/products/delete.php?id=<?= $product['product_id'] ?>" 
                                            onclick="return confirm('Are you sure you want to deactivate this product?')"
                                            class="text-red-400 hover:underline">
                                            <?= $product['is_active'] ? 'Deactivate' : 'Activate' ?>

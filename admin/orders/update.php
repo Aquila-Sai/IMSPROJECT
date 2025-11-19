@@ -54,7 +54,7 @@ include '../../header.php';
     <div class="max-w-2xl mx-auto">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-4xl font-bold logo-glow">Update Order #<?= $order['order_id'] ?></h1>
-            <a href="/orders/view.php?id=<?= $order_id ?>" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
+            <a href="/lumen/orders/view.php?id=<?= $order_id ?>" class="px-4 py-2 bg-slate-700 text-white rounded-lg hover:bg-slate-600 transition">
                 ← View Order
             </a>
         </div>

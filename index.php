@@ -65,41 +65,19 @@ include 'header.php';
     </div>
 </section>
 
-<!-- Interactive Login Section -->
-<section id="login-section" class="py-16">
-    <div class="flex justify-center items-center">
-        <div id="laptop-login-container">
-            <div id="laptop-body" class="laptop-body">
-                <!-- Closed State: "Tap to Open" -->
-                <div class="laptop-screen">
-                    <div class="closed-prompt text-center p-8">
-                        <div class="text-4xl font-bold mb-2 logo-glow">Lumen</div>
-                        <p class="text-slate-400">Click to Access Portal</p>
-                    </div>
-                    
-                    <!-- Login Form (visible when open) -->
-                    <div class="login-content p-8 w-full">
-                        <h2 class="text-2xl font-bold mb-6 text-neon-blue">Client Login</h2>
-                        <form action="/user/login.php" method="POST" class="space-y-4">
-                            <input type="email" name="email" id="email" placeholder="Email" required
-                                   class="w-full px-4 py-2 bg-space-dark border border-neon-blue/30 rounded-lg text-text-base focus:outline-none focus:border-neon-blue">
-                            <input type="password" name="password" placeholder="Password" required
-                                   class="w-full px-4 py-2 bg-space-dark border border-neon-blue/30 rounded-lg text-text-base focus:outline-none focus:border-neon-blue">
-                            <button type="submit" class="w-full py-2 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition duration-200">
-                                Login
-                            </button>
-                        </form>
-                        <p class="mt-4 text-center text-slate-400 text-sm">
-                            Don't have an account? <a href="/user/register.php" class="text-neon-blue hover:underline">Register</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
+<!-- Call to Action Section -->
+<section id="login-section" class="py-16 bg-primary-panel/30">
+    <div class="text-center max-w-2xl mx-auto">
+        <h2 class="text-4xl font-bold mb-6 logo-glow">Ready to Get Started?</h2>
+        <p class="text-xl text-slate-300 mb-8">Join Lumen today and explore our premium laptop collection</p>
+        <div class="flex gap-4 justify-center">
+            <a href="/lumen/user/login.php" class="px-8 py-4 bg-neon-blue text-white rounded-lg text-lg font-semibold hover:bg-blue-600 transition duration-300 shadow-lg shadow-neon-blue/50">
+                Login to Your Account
+            </a>
+            <a href="/lumen/user/register.php" class="px-8 py-4 bg-neon-blue/20 border-2 border-neon-blue text-neon-blue rounded-lg text-lg font-semibold hover:bg-neon-blue hover:text-white transition duration-300">
+                Create Account
+            </a>
         </div>
-        
-        <button id="close-btn" onclick="toggleLogin()" class="hidden ml-4 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
-            Close
-        </button>
     </div>
 </section>
 
@@ -171,13 +149,13 @@ include 'header.php';
                     </div>
                     
                     <div class="flex gap-2">
-                        <a href="/products/view.php?id=<?= $product['product_id'] ?>" 
+                        <a href="/lumen/products/view.php?id=<?= $product['product_id'] ?>" 
                            class="flex-1 text-center px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition duration-200">
                             View Details
                         </a>
                         
                         <?php if($product['stock'] > 0): ?>
-                            <form action="/cart/add.php" method="POST" class="flex-1">
+                            <form action="/lumen/cart/add.php" method="POST" class="flex-1">
                                 <input type="hidden" name="product_id" value="<?= $product['product_id'] ?>">
                                 <button type="submit" class="w-full px-4 py-2 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition duration-200">
                                     Add to Cart
@@ -200,8 +178,6 @@ include 'header.php';
 </section>
 
 <script>
-    // Laptop login toggle is in footer.php
-    
     // Smooth scroll to products
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -211,13 +187,6 @@ include 'header.php';
                 target.scrollIntoView({ behavior: 'smooth' });
             }
         });
-    });
-    
-    // Click laptop to open
-    document.getElementById('laptop-login-container').addEventListener('click', function(e) {
-        if (!e.target.closest('form') && !e.target.closest('button')) {
-            toggleLogin();
-        }
     });
 </script>
 

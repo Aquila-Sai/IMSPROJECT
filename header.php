@@ -39,7 +39,7 @@
             <nav class="hidden md:flex space-x-8 text-lg font-medium">
                 <a href="#" class="text-text-base hover:text-neon-blue transition duration-200">Products</a>
                 <a href="#" class="text-text-base hover:text-neon-blue transition duration-200">Reviews</a>
-                <a href="#login-section" class="px-4 py-2 bg-neon-blue rounded-lg text-white hover:bg-blue-600 transition duration-200 shadow-md shadow-neon-blue/30">
+                <a href="/lumen/user/login.php" class="px-4 py-2 bg-neon-blue rounded-lg text-white hover:bg-blue-600 transition duration-200 shadow-md shadow-neon-blue/30">
                     Client Portal
                 </a>
             </nav>

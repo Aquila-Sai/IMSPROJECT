@@ -135,6 +135,16 @@ include '../header.php';
                                 </span>
                             </div>
                             <p class="text-slate-300"><?= nl2br(htmlspecialchars($review['comment'])) ?></p>
+                            
+                            <?php if(isLoggedIn() && $_SESSION['user_id'] == $review['user_id']): ?>
+                                <div class="mt-3 flex gap-3">
+                                    <a href="/lumen/reviews/update.php?id=<?= $review['review_id'] ?>" 
+                                       class="text-sm text-neon-blue hover:underline">Edit Review</a>
+                                    <a href="/lumen/reviews/delete.php?id=<?= $review['review_id'] ?>" 
+                                       onclick="return confirm('Delete this review?')"
+                                       class="text-sm text-red-400 hover:underline">Delete Review</a>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     <?php endwhile; ?>
                 </div>

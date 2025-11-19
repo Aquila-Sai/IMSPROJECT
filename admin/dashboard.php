@@ -36,7 +36,7 @@ include '../header.php';
     <div class="max-w-7xl mx-auto">
         <div class="flex justify-between items-center mb-8">
             <h1 class="text-4xl font-bold logo-glow">Admin Dashboard</h1>
-            <a href="/user/logout.php" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+            <a href="/lumen/user/logout.php" class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                 Logout
             </a>
         </div>
@@ -68,22 +68,22 @@ include '../header.php';
         <div class="futuristic-card p-6 rounded-xl mb-8">
             <h2 class="text-2xl font-bold mb-4 text-neon-blue">Quick Actions</h2>
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                <a href="/admin/products/create.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/products/create.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     + Add Product
                 </a>
-                <a href="/admin/products/read.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/products/read.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     Manage Products
                 </a>
-                <a href="/admin/orders/read.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/orders/read.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     View Orders
                 </a>
-                <a href="/admin/reports/sales.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/reports/sales.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     Sales Report
                 </a>
-                <a href="/admin/reports/inventory.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/reports/inventory.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     Inventory Report
                 </a>
-                <a href="/admin/reports/monthly.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
+                <a href="/lumen/admin/reports/monthly.php" class="px-4 py-3 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition text-center">
                     Monthly Report
                 </a>
             </div>
@@ -129,7 +129,7 @@ include '../header.php';
                                 </div>
                                 <div class="text-right">
                                     <p class="font-bold text-red-400">Stock: <?= $product['stock'] ?></p>
-                                    <a href="/admin/products/update.php?id=<?= $product['product_id'] ?>" 
+                                    <a href="/lumen/admin/products/update.php?id=<?= $product['product_id'] ?>" 
                                        class="text-sm text-neon-blue hover:underline">Restock</a>
                                 </div>
                             </div>

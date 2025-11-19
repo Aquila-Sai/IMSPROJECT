@@ -64,7 +64,7 @@ include '../header.php';
                                             </button>
                                         </form>
                                         
-                                        <a href="/cart/remove.php?id=<?= $item['cart_id'] ?>" 
+                                        <a href="/lumen/cart/remove.php?id=<?= $item['cart_id'] ?>" 
                                            onclick="return confirm('Remove this item from cart?')"
                                            class="text-red-400 hover:underline">Remove</a>
                                     </div>
@@ -101,11 +101,11 @@ include '../header.php';
                             </div>
                         </div>
                         
-                        <a href="/orders/checkout.php" class="block w-full py-3 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition duration-200 text-center text-lg font-semibold">
+                        <a href="/lumen/orders/checkout.php" class="block w-full py-3 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition duration-200 text-center text-lg font-semibold">
                             Proceed to Checkout
                         </a>
                         
-                        <a href="/index.php" class="block w-full mt-3 py-2 text-center text-neon-blue hover:underline">
+                        <a href="/lumen/index.php" class="block w-full mt-3 py-2 text-center text-neon-blue hover:underline">
                             Continue Shopping
                         </a>
                     </div>
@@ -114,7 +114,7 @@ include '../header.php';
         <?php else: ?>
             <div class="futuristic-card p-12 rounded-xl text-center">
                 <p class="text-2xl text-slate-400 mb-6">Your cart is empty</p>
-                <a href="/index.php" class="inline-block px-8 py-3 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition">
+                <a href="/lumen/index.php" class="inline-block px-8 py-3 bg-neon-blue text-white rounded-lg hover:bg-blue-600 transition">
                     Start Shopping
                 </a>
             </div>

@@ -13,6 +13,7 @@ CREATE TABLE users (
     phone VARCHAR(20),
     address TEXT,
     is_admin TINYINT(1) DEFAULT 0,
+    is_active TINYINT(1) DEFAULT 1,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -112,3 +113,51 @@ INSERT INTO products (name, brand, price, description, cpu, ram, storage, screen
 -- Password: customer123
 INSERT INTO users (name, email, password, phone, address, is_admin) VALUES
 ('John Doe', 'customer@example.com', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '09987654321', '123 Sample St, Manila, Philippines', 0);
+
+-- ================================================
+-- MySQL Views for Order Transaction Details (Unit 1 - 20pts)
+-- ================================================
+
+-- View 1: Complete Order Details with Customer and Product Info
+CREATE VIEW order_details_view AS
+SELECT 
+    o.order_id,
+    o.order_date,
+    o.status,
+    o.total_amount,
+    o.payment_method,
+    o.tracking_number,
+    u.user_id,
+    u.name as customer_name,
+    u.email as customer_email,
+    u.phone as customer_phone,
+    o.shipping_address,
+    p.product_id,
+    p.name as product_name,
+    p.brand,
+    oi.quantity,
+    oi.price as unit_price,
+    (oi.quantity * oi.price) as subtotal
+FROM orders o
+JOIN users u ON o.user_id = u.user_id
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id
+ORDER BY o.order_date DESC;
+
+-- View 2: Order Summary (Aggregated)
+CREATE VIEW order_summary_view AS
+SELECT 
+    o.order_id,
+    o.order_date,
+    o.status,
+    u.name as customer_name,
+    u.email,
+    COUNT(oi.item_id) as total_items,
+    SUM(oi.quantity) as total_quantity,
+    o.total_amount,
+    o.payment_method
+FROM orders o
+JOIN users u ON o.user_id = u.user_id
+LEFT JOIN order_items oi ON o.order_id = oi.order_id
+GROUP BY o.order_id
+ORDER BY o.order_date DESC;

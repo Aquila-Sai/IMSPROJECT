@@ -101,16 +101,16 @@ include '../header.php';
                 <div class="futuristic-card p-6 rounded-xl text-center">
                     <h3 class="text-xl font-bold mb-4 text-neon-blue">Quick Actions</h3>
                     <div class="space-y-3">
-                        <a href="/cart/view.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
+                        <a href="/lumen/cart/view.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
                             View Cart
                         </a>
-                        <a href="/user/orders.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
+                        <a href="/lumen/user/orders.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
                             My Orders
                         </a>
-                        <a href="/index.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
+                        <a href="/lumen/index.php" class="block px-4 py-2 bg-neon-blue/20 border border-neon-blue text-neon-blue rounded-lg hover:bg-neon-blue hover:text-white transition">
                             Browse Products
                         </a>
-                        <a href="/user/logout.php" class="block px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+                        <a href="/lumen/user/logout.php" class="block px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
                             Logout
                         </a>
                     </div>
@@ -154,7 +154,7 @@ include '../header.php';
                                         </span>
                                     </td>
                                     <td class="py-3 px-4">
-                                        <a href="/orders/view.php?id=<?= $order['order_id'] ?>" 
+                                        <a href="/lumen/orders/view.php?id=<?= $order['order_id'] ?>" 
                                            class="text-neon-blue hover:underline">View Details</a>
                                     </td>
                                 </tr>
@@ -163,7 +163,7 @@ include '../header.php';
                     </table>
                 </div>
             <?php else: ?>
-                <p class="text-center text-slate-400 py-8">No orders yet. <a href="/index.php" class="text-neon-blue hover:underline">Start shopping!</a></p>
+                <p class="text-center text-slate-400 py-8">No orders yet. <a href="lumen/index.php" class="text-neon-blue hover:underline">Start shopping!</a></p>
             <?php endif; ?>
         </div>
     </div>
